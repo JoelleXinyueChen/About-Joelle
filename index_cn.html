@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈心玥 — 个人简介</title>
+<meta name="description" content="陈心玥 — 商科竞赛世界冠军，INFP，自研外骨骼支架，雅思7.5。申请广州市斐特思学校。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==============================
+   DESIGN TOKENS
+   ============================== */
+:root {
+  --ink: #0B1828;
+  --ink-deep: #060F1C;
+  --cream: #F4F0E6;
+  --cream-warm: #EDE7D8;
+  --paper: #FAF7F0;
+  --gold: #C5A572;
+  --gold-bright: #D4B886;
+  --gold-deep: #A88A52;
+  --sage: #6B7B5E;
+  --burgundy: #7C3B3B;
+  --text-dark: #1A1A1A;
+  --text-mid: #4A4A4A;
+  --text-light: #8A8A8A;
+  --text-on-dark: #E8E4D8;
+  --text-on-dark-mid: #A8A095;
+  --line: rgba(11, 24, 40, 0.12);
+  --line-gold: rgba(197, 165, 114, 0.3);
+  --serif: 'Noto Serif SC', 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Noto Sans SC', 'Manrope', system-ui, sans-serif;
+  --serif-cn: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  --sans-cn: 'Noto Sans SC', 'Manrope', sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==============================
+   RESET & BASE
+   ============================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* Selection */
+::selection { background: var(--gold); color: var(--ink-deep); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream-warm); }
+::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+
+/* ==============================
+   PROGRESS BAR
+   ============================== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(244, 240, 230, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 3rem;
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-on-dark);
+  transition: color 0.5s;
+}
+.nav.scrolled .nav-logo { color: var(--ink); }
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+  transition: color 0.3s;
+  position: relative;
+  padding: 0.25rem 0;
+}
+.nav.scrolled .nav-links a { color: var(--text-mid); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.4s var(--ease);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+
+/* Language Toggle */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(197, 165, 114, 0.35);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-on-dark-mid);
+  transition: all 0.4s var(--ease);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.lang-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(197, 165, 114, 0.08);
+}
+.nav.scrolled .lang-toggle {
+  color: var(--text-mid);
+  border-color: rgba(11, 24, 40, 0.2);
+}
+.nav.scrolled .lang-toggle:hover {
+  color: var(--gold-deep);
+  border-color: var(--gold-deep);
+}
+.lang-toggle .lang-current {
+  color: var(--gold);
+}
+.nav.scrolled .lang-toggle .lang-current {
+  color: var(--gold-deep);
+}
+.lang-toggle .lang-sep {
+  opacity: 0.4;
+  font-weight: 300;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink-deep);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('hero_bg.jpg') center/cover no-repeat;
+  opacity: 0.45;
+  will-change: transform;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, transparent 0%, rgba(6, 15, 28, 0.7) 60%, rgba(6, 15, 28, 0.95) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 900px;
+}
+.hero-portrait {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(197, 165, 114, 0.4);
+  box-shadow: 0 0 0 6px rgba(197, 165, 114, 0.08), 0 20px 60px -10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.2s forwards, portraitGlow 4s ease-in-out 1.5s infinite;
+  position: relative;
+}
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.hero-portrait:hover img { transform: scale(1.1); }
+@keyframes portraitGlow {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(197, 165, 114, 0.08), 0 20px 60px -10px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(197, 165, 114, 0.15), 0 20px 70px -10px rgba(197, 165, 114, 0.2); }
+}
+.hero-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s var(--ease) 0.5s forwards;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  vertical-align: middle;
+  margin: 0 1.5rem;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 0.7s forwards;
+}
+.hero-name em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-bright);
+}
+.hero-name-cn {
+  font-family: var(--serif-cn);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--text-on-dark-mid);
+  letter-spacing: 0.3em;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 0.9s forwards;
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 1.1s forwards;
+}
+.hero-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(197, 165, 114, 0.35);
+  border-radius: 50px;
+  background: rgba(197, 165, 114, 0.06);
+  transition: all 0.4s var(--ease);
+}
+.hero-tag:hover {
+  background: rgba(197, 165, 114, 0.15);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.hero-meta {
+  font-size: 0.85rem;
+  color: var(--text-on-dark-mid);
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 1.3s forwards;
+}
+.hero-meta span { color: var(--gold-bright); margin: 0 0.5rem; }
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.7s forwards;
+}
+.scroll-indicator span {
+  display: block;
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  margin: 0 auto 0.5rem;
+  animation: scrollLine 2s ease-in-out infinite;
+}
+.scroll-indicator p {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+}
+
+/* ==============================
+   SECTION COMMON
+   ============================== */
+.section {
+  padding: 8rem 3rem;
+  position: relative;
+}
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold-deep);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-deep);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container-narrow {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   ABOUT SECTION
+   ============================== */
+.about {
+  background: var(--paper);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(11, 24, 40, 0.25);
+}
+.about-image img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 8s ease;
+}
+.about-image:hover img { transform: scale(1.08); }
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(197, 165, 114, 0.2);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.about-image-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 2.5rem 1.5rem 1.25rem;
+  background: linear-gradient(to top, rgba(11, 24, 40, 0.85), transparent);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 1.5rem;
+}
+.about-text p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.about-text .lead {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+.about-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+.about-stat .num {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+}
+.about-stat .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* ==============================
+   EDUCATION TIMELINE
+   ============================== */
+.education {
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.education::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -10%;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(197, 165, 114, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--line));
+}
+.timeline-item {
+  position: relative;
+  padding-left: 3rem;
+  padding-bottom: 3rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.5rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--gold);
+  transition: all 0.4s;
+}
+.timeline-item:hover::before {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+.timeline-year {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  letter-spacing: 0.05em;
+}
+.timeline-school {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0.25rem 0 0.5rem;
+}
+.timeline-location {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ==============================
+   SKILLS SECTION
+   ============================== */
+.skills {
+  background: var(--paper);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.skill-card {
+  padding: 2.5rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: all 0.5s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.5s var(--ease);
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px -15px rgba(11, 24, 40, 0.12);
+  border-color: var(--line-gold);
+}
+.skill-card:hover::before { height: 100%; }
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-deep);
+}
+.skill-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1;
+}
+.skill-card h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.skill-card p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-mid);
+}
+
+/* ==============================
+   STATS BANNER
+   ============================== */
+.stats-banner {
+  background: var(--ink-deep);
+  padding: 5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.stats-banner::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(197, 165, 114, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(197, 165, 114, 0.15);
+}
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  color: var(--gold-bright);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-number .suffix {
+  font-size: 0.5em;
+  color: var(--text-on-dark-mid);
+  font-weight: 300;
+}
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* ==============================
+   AWARDS SECTION
+   ============================== */
+.awards {
+  background: var(--ink);
+  padding: 8rem 3rem;
+  color: var(--text-on-dark);
+}
+.awards .section-label { color: var(--gold); }
+.awards .section-label::before { background: var(--gold); }
+.awards .section-title { color: var(--paper); }
+.awards .section-title em { color: var(--gold-bright); }
+
+.award-year {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gold-bright);
+  letter-spacing: 0.3em;
+  margin: 3.5rem 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(197, 165, 114, 0.15);
+}
+.award-year:first-of-type { margin-top: 0; }
+
+.award-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(197, 165, 114, 0.08);
+  transition: all 0.4s var(--ease);
+  cursor: default;
+}
+.award-card:hover {
+  padding-left: 1rem;
+  border-bottom-color: rgba(197, 165, 114, 0.25);
+}
+.award-rank {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--gold-bright);
+  line-height: 1;
+  min-width: 80px;
+  font-style: italic;
+}
+.award-rank .small {
+  font-size: 0.85rem;
+  font-style: normal;
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-on-dark-mid);
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+.award-body h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+.award-body p {
+  font-size: 0.85rem;
+  color: var(--text-on-dark-mid);
+  line-height: 1.6;
+}
+.award-body .badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(197, 165, 114, 0.3);
+  border-radius: 50px;
+  margin-top: 0.6rem;
+}
+.award-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-on-dark-mid);
+  text-align: right;
+  white-space: nowrap;
+}
+.award-tag strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+/* ==============================
+   LANGUAGES SECTION
+   ============================== */
+.languages {
+  background: var(--cream-warm);
+}
+.lang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.ielts-card {
+  background: var(--paper);
+  padding: 3rem;
+  border-radius: 2px;
+  box-shadow: 0 20px 60px -20px rgba(11, 24, 40, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+.ielts-card::before {
+  content: 'IELTS';
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: var(--serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--text-light);
+}
+.ielts-score {
+  font-family: var(--serif);
+  font-size: 5rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+}
+.ielts-score sub {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-light);
+  vertical-align: baseline;
+}
+.ielts-note {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.ielts-bands {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.band-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.band-item:last-child,
+.band-item:nth-last-child(2) { border-bottom: none; }
+.band-name {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+.band-score {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.lang-list { padding-left: 1rem; }
+.lang-list h4 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.lang-item {
+  margin-bottom: 1.5rem;
+}
+.lang-item .name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.lang-item .level {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+.footer {
+  background: var(--ink-deep);
+  padding: 5rem 3rem 3rem;
+  text-align: center;
+  color: var(--text-on-dark);
+}
+.footer-quote {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-bright);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+.footer-name span { color: var(--gold); }
+.footer-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+  margin-bottom: 2rem;
+}
+.footer-line {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 2rem;
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(168, 160, 149, 0.4);
+  letter-spacing: 0.1em;
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 900px) {
+  .nav { padding: 1rem 1.5rem; }
+  .nav.scrolled { padding: 0.75rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-right { gap: 1rem; }
+  .section { padding: 5rem 1.5rem; }
+  .stats-banner { padding: 4rem 1.5rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+  .stat-item:nth-child(2)::after { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image img { height: 380px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .lang-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .award-card { grid-template-columns: 1fr; gap: 0.75rem; }
+  .award-tag { text-align: left; }
+  .award-rank { min-width: auto; }
+  .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; margin: 0 0.75rem; }
+}
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item::after { display: none !important; }
+  .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .ielts-bands { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">J<span>.</span>C</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">关于</a></li>
+      <li><a href="#education">求学</a></li>
+      <li><a href="#skills">能力</a></li>
+      <li><a href="#awards">奖项</a></li>
+      <li><a href="#languages">语言</a></li>
+    </ul>
+    <a href="index.html" class="lang-toggle">
+      <span>EN</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-current">中</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-portrait" id="heroPortrait">
+      <img src="portrait.jpg" alt="陈心玥">
+    </div>
+    <div class="hero-eyebrow">个人简介</div>
+    <h1 class="hero-name">陈心玥</h1>
+    <div class="hero-name-cn">Joelle Xinyue Chen</div>
+    <div class="hero-tags">
+      <span class="hero-tag">INFP</span>
+      <span class="hero-tag">商科竞赛世界冠军</span>
+      <span class="hero-tag">自研外骨骼支架</span>
+      <span class="hero-tag">雅思首考7.5</span>
+    </div>
+    <div class="hero-meta">14岁 <span>·</span> 8年级 <span>·</span> 法国巴黎出生，澳洲成长</div>
+  </div>
+  <div class="scroll-indicator">
+    <span></span>
+    <p>滚动</p>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="portrait.jpg" alt="陈心玥 — 个人肖像">
+        <div class="about-image-caption">陈心玥 · Joelle Xinyue Chen</div>
+      </div>
+      <div class="about-text reveal reveal-delay-1">
+        <div class="section-label">关于我</div>
+        <h2 class="section-title">一个<em>先动手</em>、边做边改的行动派。</h2>
+        <p class="lead">法国巴黎出生，在澳洲成长至三年级，疫情后回到广州。</p>
+        <p>我从中文几乎零基础——期末全科不合格、语文仅24分——自学到<strong>番禺区优秀班干部</strong>。小马宝莉最火时通过小红书跑通内容与变现，赚到第一桶金；后接触国际商业赛事，斩获多项全球级奖项。</p>
+        <p>我擅长中英双语表达与全英文路演。我喜欢动手制作——曾为比赛<strong>亲手缝制产品原型</strong>并因此爱上缝纫。我热爱商业、演讲、AI创作与vibe coding。</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">3</div>
+            <div class="label">居住国家</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">14</div>
+            <div class="label">岁</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">$60K</div>
+            <div class="label">奖学金</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section class="section education" id="education">
+  <div class="container">
+    <div class="section-label reveal">求学经历</div>
+    <h2 class="section-title reveal reveal-delay-1">三个国家，<em>一段旅程。</em></h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2024 — 至今</div>
+        <div class="timeline-school">广州番禺祈福英语实验学校 · 火箭班</div>
+        <div class="timeline-location">中国广州</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-1">
+        <div class="timeline-year">2020 — 2024</div>
+        <div class="timeline-school">广州番禺洛浦厦滘学校</div>
+        <div class="timeline-location">中国广州</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-2">
+        <div class="timeline-year">2017 — 2020</div>
+        <div class="timeline-school">Wheelers Hill Primary School</div>
+        <div class="timeline-location">澳大利亚墨尔本</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section skills" id="skills">
+  <div class="container">
+    <div class="section-label reveal">核心能力</div>
+    <h2 class="section-title reveal reveal-delay-1">我能<em>带来的价值。</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>商业策划</h3>
+        <p>多次参与国际商赛，独立完成商业计划书撰写，熟悉从想法到方案的基本逻辑。</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+        </div>
+        <h3>公开演讲</h3>
+        <p>在多场国际商赛中担任全英文路演主讲人，能清晰、有条理地表达复杂想法。</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <h3>视觉设计与手工制作</h3>
+        <p>擅长海报排版与信息可视化，同时具备产品原型手工制作经验，能将抽象概念转化为实体样品。</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>AI工具与Vibe Coding</h3>
+        <p>擅长在图像视频制作及vibe coding中快速验证想法，享受"描述想法→动手试→看反馈"的创作方式。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Banner -->
+<section class="stats-banner">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number"><span class="counter" data-target="30">0</span><span class="suffix">+</span></div>
+      <div class="stat-label">国际商赛<br>经历</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number"><span class="counter" data-target="2">0</span></div>
+      <div class="stat-label">全球<br>冠军</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number"><span class="counter" data-target="5">0</span></div>
+      <div class="stat-label">全球<br>前五</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number"><span class="suffix">$</span><span class="counter" data-target="60">0</span><span class="suffix">K</span></div>
+      <div class="stat-label">奖学金与<br>融资</div>
+    </div>
+  </div>
+</section>
+
+<!-- Awards -->
+<section class="section awards" id="awards">
+  <div class="container-narrow">
+    <div class="section-label reveal">奖项与成就</div>
+    <h2 class="section-title reveal reveal-delay-1">一份<em>全球卓越</em>的成绩单。</h2>
+
+    <!-- 2026 -->
+    <div class="award-year reveal">2026</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">5强<span class="small">全球</span></div>
+      <div class="award-body">
+        <h4>YES! Program Silicon Valley Challenge — Global Finals</h4>
+        <p>获YES!学术基金$3,000真实首轮投资。亚洲唯一晋级全球总决赛的队伍(1/15)。全球仅5支初创团队获融资，亚洲唯一，其他3支大学生、1支高中生。</p>
+        <span class="badge">获得融资</span>
+      </div>
+      <div class="award-tag"><strong>$3,000</strong>投资</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">金奖<span class="small">全国</span></div>
+      <div class="award-body">
+        <h4>MEC Model Entrepreneur Competition — China Finals</h4>
+        <p>全国金奖 · 高中组 · 队长 · 无源外骨骼支架创业作品。中国Top 5(5/100)晋级全球赛，全国仅8支国家队8月远赴东京征战MEC全球赛。</p>
+        <span class="badge">队长</span>
+      </div>
+      <div class="award-tag"><strong>东京</strong>全球赛</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">#1<span class="small">全国冠军</span></div>
+      <div class="award-body">
+        <h4>ASDAN All-Star National Finals — Middle School Division</h4>
+        <p>全国冠军 · 超级金奖 · 队长。两场最佳路演、最佳交易、决策全国第一、个人最佳演讲者(8/400+)。</p>
+        <span class="badge">最佳演讲者</span>
+      </div>
+      <div class="award-tag"><strong>冠军</strong>超级金奖</div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="award-year reveal">2025</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">冠军<span class="small">全球第一</span></div>
+      <div class="award-body">
+        <h4>HFLC Hult Future Leaders Challenge — Global Finals</h4>
+        <p>全球冠军(1/10) · 副队长 · 发光智能足球项目。中国首支达成此成就的队伍。从全球582支队伍中晋级(晋级率仅6.9%，95%为高中生)。</p>
+        <span class="badge">$60K奖学金</span>
+      </div>
+      <div class="award-tag"><strong>$60,000</strong>Hult奖学金</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">第四<span class="small">全球</span></div>
+      <div class="award-body">
+        <h4>BPA Business Professionals of America — Global Finals</h4>
+        <p>全球第四名 · 美国奥兰多 · 队长 · 985商业路演项目。连续第二年获得全球第四。中国队仅有5支Top10队伍之一。</p>
+        <span class="badge">队长</span>
+      </div>
+      <div class="award-tag"><strong>奥兰多</strong>美国</div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="award-year reveal">2024</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">亚军<span class="small">全球第二</span></div>
+      <div class="award-body">
+        <h4>HFLC Hult Future Leaders Challenge — Global Finals</h4>
+        <p>全球亚军。600+全球高中组队伍排名第二。获$40,000 Hult大学奖学金。</p>
+        <span class="badge">$40K奖学金</span>
+      </div>
+      <div class="award-tag"><strong>$40,000</strong>Hult奖学金</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">第四<span class="small">全球</span></div>
+      <div class="award-body">
+        <h4>BPA Business Professionals of America — Global Finals</h4>
+        <p>全球第四名 · 美国芝加哥 · 队长。初赛及全国赛均获全国银奖。创投实验室创业独角兽奖全国亚军(2/12，唯一晋级全国赛的初中组队伍)。</p>
+        <span class="badge">队长</span>
+      </div>
+      <div class="award-tag"><strong>芝加哥</strong>美国</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">银奖<span class="small">全国</span></div>
+      <div class="award-body">
+        <h4>WYEF National Business Finals — Middle School Division</h4>
+        <p>全国银奖(3/50)。含全国商业决策第四、路演奖、企业家精神奖共7项奖项。</p>
+      </div>
+      <div class="award-tag"><strong>7项</strong>荣誉</div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="award-year reveal">2022 — 2025</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">10<span class="small">场</span></div>
+      <div class="award-body">
+        <h4>ASDAN Business Simulations — Regional Rounds</h4>
+        <p>10场初高中组区域赛。2金4银4铜。含最佳路演、最佳决策、最佳交易、最佳海报、SCAMPER创新奖。</p>
+      </div>
+      <div class="award-tag"><strong>10场</strong>2金/4银/4铜</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">前30%<span class="small">全球</span></div>
+      <div class="award-body">
+        <h4>YIEC Youth Innovation & Entrepreneurship Competition</h4>
+        <p>全球前30%(30/100) · 队长。另获2022年WYEF全国铜奖(6/50)，含最佳路演奖、企业家精神奖。</p>
+      </div>
+      <div class="award-tag"><strong>队长</strong>2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- Languages -->
+<section class="section languages" id="languages">
+  <div class="container">
+    <div class="section-label reveal">语言能力</div>
+    <h2 class="section-title reveal reveal-delay-1">双语<em>浸入式</em>成长。</h2>
+    <div class="lang-grid">
+      <div class="ielts-card reveal">
+        <div class="ielts-score">7<sub>.5</sub></div>
+        <div class="ielts-note">雅思 · 首考 · 均达7+ · 2026年5月</div>
+        <div class="ielts-bands">
+          <div class="band-item">
+            <span class="band-name">听力</span>
+            <span class="band-score">7.5</span>
+          </div>
+          <div class="band-item">
+            <span class="band-name">阅读</span>
+            <span class="band-score">8.5</span>
+          </div>
+          <div class="band-item">
+            <span class="band-name">写作</span>
+            <span class="band-score">7.5</span>
+          </div>
+          <div class="band-item">
+            <span class="band-name">口语</span>
+            <span class="band-score">7.0</span>
+          </div>
+        </div>
+      </div>
+      <div class="lang-list reveal reveal-delay-1">
+        <h4>语言掌握</h4>
+        <div class="lang-item">
+          <div class="name">普通话</div>
+          <div class="level">母语 · 从零基础自学到番禺区优秀班干部</div>
+        </div>
+        <div class="lang-item">
+          <div class="name">粤语</div>
+          <div class="level">母语 · 广州日常使用</div>
+        </div>
+        <div class="lang-item">
+          <div class="name">英语</div>
+          <div class="level">流利 · 澳洲小学三年 · 雅思7.5</div>
+        </div>
+        <div class="lang-item">
+          <div class="name">法语</div>
+          <div class="level">文化渊源 · 出生于法国巴黎</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-line"></div>
+  <p class="footer-quote">"我的风格是先动手，边做边改。"</p>
+  <div class="footer-name">陈心玥 <span>Joelle Xinyue Chen</span></div>
+  <div class="footer-meta">14岁 · 8年级 · INFP</div>
+  <p class="footer-copy">个人简介 · 申请广州市斐特思学校 · 2026</p>
+</footer>
+
+<script>
+// ==============================
+// NAVIGATION SCROLL
+// ==============================
+const nav = document.getElementById('nav');
+const progressBar = document.getElementById('progressBar');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+  const progress = (scrolled / maxScroll) * 100;
+
+  if (scrolled > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  progressBar.style.width = progress + '%';
+});
+
+// ==============================
+// HERO PARALLAX
+// ==============================
+const heroBg = document.getElementById('heroBg');
+const hero = document.getElementById('hero');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  if (scrolled < window.innerHeight) {
+    heroBg.style.transform = `translateY(${scrolled * 0.4}px) scale(${1 + scrolled * 0.0003})`;
+    heroBg.style.opacity = Math.max(0.15, 0.45 - scrolled * 0.0008);
+  }
+});
+
+// ==============================
+// SCROLL REVEAL (Intersection Observer)
+// ==============================
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Trigger counter if it has one
+      const counter = entry.target.querySelector('.counter');
+      if (counter && !counter.dataset.counted) {
+        counter.dataset.counted = 'true';
+        animateCounter(counter);
+      }
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+// ==============================
+// COUNTER ANIMATION
+// ==============================
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const start = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = current;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// ==============================
+// SMOOTH SCROLL FOR NAV LINKS
+// ==============================
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 0;
+      window.scrollTo({
+        top: target.offsetTop - 20,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// ==============================
+// ACTIVE NAV STATE ON SCROLL
+// ==============================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-20% 0px -50% 0px' });
+
+sections.forEach((section) => navObserver.observe(section));
+
+// ==============================
+// SUBTLE CURSOR GLOW (desktop only)
+// ==============================
+if (window.matchMedia('(min-width: 900px)').matches) {
+  const cursorGlow = document.createElement('div');
+  cursorGlow.style.cssText = `
+    position: fixed;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 165, 114, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    mix-blend-mode: screen;
+  `;
+  document.body.appendChild(cursorGlow);
+
+  document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+  });
+}
+</script>
+</body>
+</html>

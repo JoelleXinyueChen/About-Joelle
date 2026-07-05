@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joelle Xinyue Chen — Personal Profile</title>
+<meta name="description" content="Joelle Xinyue Chen — Business Competition World Champion, INFP, Exoskeleton Prototype Creator, IELTS 7.5. Applying to Fettes College Guangzhou.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ==============================
+   DESIGN TOKENS
+   ============================== */
+:root {
+  --ink: #0B1828;
+  --ink-deep: #060F1C;
+  --cream: #F4F0E6;
+  --cream-warm: #EDE7D8;
+  --paper: #FAF7F0;
+  --gold: #C5A572;
+  --gold-bright: #D4B886;
+  --gold-deep: #A88A52;
+  --sage: #6B7B5E;
+  --burgundy: #7C3B3B;
+  --text-dark: #1A1A1A;
+  --text-mid: #4A4A4A;
+  --text-light: #8A8A8A;
+  --text-on-dark: #E8E4D8;
+  --text-on-dark-mid: #A8A095;
+  --line: rgba(11, 24, 40, 0.12);
+  --line-gold: rgba(197, 165, 114, 0.3);
+  --serif: 'Cormorant Garamond', 'Noto Serif SC', Georgia, serif;
+  --sans: 'Manrope', 'Noto Sans SC', system-ui, sans-serif;
+  --serif-cn: 'Noto Serif SC', 'Cormorant Garamond', serif;
+  --sans-cn: 'Noto Sans SC', 'Manrope', sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==============================
+   RESET & BASE
+   ============================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* Selection */
+::selection { background: var(--gold); color: var(--ink-deep); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream-warm); }
+::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 3px; }
+
+/* ==============================
+   PROGRESS BAR
+   ============================== */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(244, 240, 230, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 3rem;
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-on-dark);
+  transition: color 0.5s;
+}
+.nav.scrolled .nav-logo { color: var(--ink); }
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+  transition: color 0.3s;
+  position: relative;
+  padding: 0.25rem 0;
+}
+.nav.scrolled .nav-links a { color: var(--text-mid); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.4s var(--ease);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--gold); }
+.nav-links a.active::after { width: 100%; }
+
+/* Language Toggle */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(197, 165, 114, 0.35);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-on-dark-mid);
+  transition: all 0.4s var(--ease);
+  white-space: nowrap;
+  text-decoration: none;
+}
+.lang-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(197, 165, 114, 0.08);
+}
+.nav.scrolled .lang-toggle {
+  color: var(--text-mid);
+  border-color: rgba(11, 24, 40, 0.2);
+}
+.nav.scrolled .lang-toggle:hover {
+  color: var(--gold-deep);
+  border-color: var(--gold-deep);
+}
+.lang-toggle .lang-current {
+  color: var(--gold);
+}
+.nav.scrolled .lang-toggle .lang-current {
+  color: var(--gold-deep);
+}
+.lang-toggle .lang-sep {
+  opacity: 0.4;
+  font-weight: 300;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ==============================
+   HERO SECTION
+   ============================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink-deep);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('hero_bg.jpg') center/cover no-repeat;
+  opacity: 0.45;
+  will-change: transform;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, transparent 0%, rgba(6, 15, 28, 0.7) 60%, rgba(6, 15, 28, 0.95) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 2rem;
+  max-width: 900px;
+}
+.hero-portrait {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 2.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(197, 165, 114, 0.4);
+  box-shadow: 0 0 0 6px rgba(197, 165, 114, 0.08), 0 20px 60px -10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeIn 1.2s ease 0.2s forwards, portraitGlow 4s ease-in-out 1.5s infinite;
+  position: relative;
+}
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+.hero-portrait:hover img { transform: scale(1.1); }
+@keyframes portraitGlow {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(197, 165, 114, 0.08), 0 20px 60px -10px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(197, 165, 114, 0.15), 0 20px 70px -10px rgba(197, 165, 114, 0.2); }
+}
+.hero-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s var(--ease) 0.5s forwards;
+}
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  vertical-align: middle;
+  margin: 0 1.5rem;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 0.7s forwards;
+}
+.hero-name em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-bright);
+}
+.hero-name-cn {
+  font-family: var(--serif-cn);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--text-on-dark-mid);
+  letter-spacing: 0.3em;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 0.9s forwards;
+}
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 1.1s forwards;
+}
+.hero-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-on-dark);
+  padding: 0.6rem 1.4rem;
+  border: 1px solid rgba(197, 165, 114, 0.35);
+  border-radius: 50px;
+  background: rgba(197, 165, 114, 0.06);
+  transition: all 0.4s var(--ease);
+}
+.hero-tag:hover {
+  background: rgba(197, 165, 114, 0.15);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.hero-meta {
+  font-size: 0.85rem;
+  color: var(--text-on-dark-mid);
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeUp 1.2s var(--ease) 1.3s forwards;
+}
+.hero-meta span { color: var(--gold-bright); margin: 0 0.5rem; }
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.7s forwards;
+}
+.scroll-indicator span {
+  display: block;
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  margin: 0 auto 0.5rem;
+  animation: scrollLine 2s ease-in-out infinite;
+}
+.scroll-indicator p {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+}
+
+/* ==============================
+   SECTION COMMON
+   ============================== */
+.section {
+  padding: 8rem 3rem;
+  position: relative;
+}
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold-deep);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-deep);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.container-narrow {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   ABOUT SECTION
+   ============================== */
+.about {
+  background: var(--paper);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(11, 24, 40, 0.25);
+}
+.about-image img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 8s ease;
+}
+.about-image:hover img { transform: scale(1.08); }
+.about-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(197, 165, 114, 0.2);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.about-image-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 2.5rem 1.5rem 1.25rem;
+  background: linear-gradient(to top, rgba(11, 24, 40, 0.85), transparent);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 1.5rem;
+}
+.about-text p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.about-text .lead {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+.about-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+.about-stat .num {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+}
+.about-stat .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+/* ==============================
+   EDUCATION TIMELINE
+   ============================== */
+.education {
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.education::before {
+  content: '';
+  position: absolute;
+  top: 0; right: -10%;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(197, 165, 114, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--line));
+}
+.timeline-item {
+  position: relative;
+  padding-left: 3rem;
+  padding-bottom: 3rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.5rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--gold);
+  transition: all 0.4s;
+}
+.timeline-item:hover::before {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+.timeline-year {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  letter-spacing: 0.05em;
+}
+.timeline-school {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0.25rem 0 0.5rem;
+}
+.timeline-location {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ==============================
+   SKILLS SECTION
+   ============================== */
+.skills {
+  background: var(--paper);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.skill-card {
+  padding: 2.5rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: all 0.5s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.5s var(--ease);
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px -15px rgba(11, 24, 40, 0.12);
+  border-color: var(--line-gold);
+}
+.skill-card:hover::before { height: 100%; }
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-deep);
+}
+.skill-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1;
+}
+.skill-card h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.skill-card p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-mid);
+}
+
+/* ==============================
+   STATS BANNER
+   ============================== */
+.stats-banner {
+  background: var(--ink-deep);
+  padding: 5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.stats-banner::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(197, 165, 114, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+.stat-item {
+  text-align: center;
+  position: relative;
+}
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(197, 165, 114, 0.15);
+}
+.stat-number {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  color: var(--gold-bright);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-number .suffix {
+  font-size: 0.5em;
+  color: var(--text-on-dark-mid);
+  font-weight: 300;
+}
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* ==============================
+   AWARDS SECTION
+   ============================== */
+.awards {
+  background: var(--ink);
+  padding: 8rem 3rem;
+  color: var(--text-on-dark);
+}
+.awards .section-label { color: var(--gold); }
+.awards .section-label::before { background: var(--gold); }
+.awards .section-title { color: var(--paper); }
+.awards .section-title em { color: var(--gold-bright); }
+
+.award-year {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gold-bright);
+  letter-spacing: 0.3em;
+  margin: 3.5rem 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(197, 165, 114, 0.15);
+}
+.award-year:first-of-type { margin-top: 0; }
+
+.award-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(197, 165, 114, 0.08);
+  transition: all 0.4s var(--ease);
+  cursor: default;
+}
+.award-card:hover {
+  padding-left: 1rem;
+  border-bottom-color: rgba(197, 165, 114, 0.25);
+}
+.award-rank {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--gold-bright);
+  line-height: 1;
+  min-width: 80px;
+  font-style: italic;
+}
+.award-rank .small {
+  font-size: 0.85rem;
+  font-style: normal;
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--text-on-dark-mid);
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+.award-body h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+.award-body p {
+  font-size: 0.85rem;
+  color: var(--text-on-dark-mid);
+  line-height: 1.6;
+}
+.award-body .badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(197, 165, 114, 0.3);
+  border-radius: 50px;
+  margin-top: 0.6rem;
+}
+.award-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-on-dark-mid);
+  text-align: right;
+  white-space: nowrap;
+}
+.award-tag strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--gold-bright);
+  font-weight: 600;
+}
+
+/* ==============================
+   LANGUAGES SECTION
+   ============================== */
+.languages {
+  background: var(--cream-warm);
+}
+.lang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.ielts-card {
+  background: var(--paper);
+  padding: 3rem;
+  border-radius: 2px;
+  box-shadow: 0 20px 60px -20px rgba(11, 24, 40, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+.ielts-card::before {
+  content: 'IELTS';
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-family: var(--serif);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--text-light);
+}
+.ielts-score {
+  font-family: var(--serif);
+  font-size: 5rem;
+  font-weight: 500;
+  color: var(--gold-deep);
+  line-height: 1;
+}
+.ielts-score sub {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-light);
+  vertical-align: baseline;
+}
+.ielts-note {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.ielts-bands {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.band-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.band-item:last-child,
+.band-item:nth-last-child(2) { border-bottom: none; }
+.band-name {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+}
+.band-score {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.lang-list { padding-left: 1rem; }
+.lang-list h4 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.lang-item {
+  margin-bottom: 1.5rem;
+}
+.lang-item .name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.lang-item .level {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+.footer {
+  background: var(--ink-deep);
+  padding: 5rem 3rem 3rem;
+  text-align: center;
+  color: var(--text-on-dark);
+}
+.footer-quote {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-bright);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+.footer-name {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+.footer-name span { color: var(--gold); }
+.footer-meta {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-mid);
+  margin-bottom: 2rem;
+}
+.footer-line {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 2rem;
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(168, 160, 149, 0.4);
+  letter-spacing: 0.1em;
+}
+
+/* ==============================
+   ANIMATIONS
+   ============================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 900px) {
+  .nav { padding: 1rem 1.5rem; }
+  .nav.scrolled { padding: 0.75rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-right { gap: 1rem; }
+  .section { padding: 5rem 1.5rem; }
+  .stats-banner { padding: 4rem 1.5rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+  .stat-item:nth-child(2)::after { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image img { height: 380px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .lang-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .award-card { grid-template-columns: 1fr; gap: 0.75rem; }
+  .award-tag { text-align: left; }
+  .award-rank { min-width: auto; }
+  .hero-eyebrow::before, .hero-eyebrow::after { width: 20px; margin: 0 0.75rem; }
+}
+@media (max-width: 500px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-item::after { display: none !important; }
+  .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .ielts-bands { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">J<span>.</span>C</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#languages">Languages</a></li>
+    </ul>
+    <a href="index_cn.html" class="lang-toggle">
+      <span class="lang-current">EN</span>
+      <span class="lang-sep">/</span>
+      <span>中</span>
+    </a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-portrait" id="heroPortrait">
+      <img src="portrait.jpg" alt="Joelle Xinyue Chen">
+    </div>
+    <div class="hero-eyebrow">Personal Profile</div>
+    <h1 class="hero-name">Joelle <em>Xinyue</em> Chen</h1>
+    <div class="hero-name-cn">陈 心玥</div>
+    <div class="hero-tags">
+      <span class="hero-tag">INFP</span>
+      <span class="hero-tag">Business World Champion</span>
+      <span class="hero-tag">Exoskeleton Prototype</span>
+      <span class="hero-tag">IELTS 7.5</span>
+    </div>
+    <div class="hero-meta">14 Years Old <span>·</span> Grade 8 <span>·</span> Born in Paris, Raised in Australia</div>
+  </div>
+  <div class="scroll-indicator">
+    <span></span>
+    <p>Scroll</p>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="portrait.jpg" alt="Joelle Xinyue Chen — Personal Portrait">
+        <div class="about-image-caption">Joelle Xinyue Chen · 陈心玥</div>
+      </div>
+      <div class="about-text reveal reveal-delay-1">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">A doer who <em>starts first</em> and iterates along the way.</h2>
+        <p class="lead">Born in Paris, raised in Australia until Grade 3, then moved to Guangzhou during the pandemic.</p>
+        <p>I taught myself Chinese from near-zero — failing every subject with a Chinese score of 24 — to becoming an <strong>Outstanding Student Leader</strong> in Panyu District. I turned a My Little Pony side project into my first income on Red Note, then discovered international business competitions and won multiple global titles.</p>
+        <p>I'm bilingual and comfortable with full-English presentations. I make things by hand — I once <strong>sewed a product prototype</strong> for a competition and fell in love with sewing. I'm passionate about business, public speaking, AI creation, and vibe coding.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">3</div>
+            <div class="label">Countries Lived</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">14</div>
+            <div class="label">Years Old</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">$60K</div>
+            <div class="label">Scholarships Earned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education -->
+<section class="section education" id="education">
+  <div class="container">
+    <div class="section-label reveal">Education Journey</div>
+    <h2 class="section-title reveal reveal-delay-1">Three countries, <em>one journey.</em></h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2024 — Present</div>
+        <div class="timeline-school">Clifford School · Honors Class (火箭班)</div>
+        <div class="timeline-location">Guangzhou, China</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-1">
+        <div class="timeline-year">2020 — 2024</div>
+        <div class="timeline-school">Guangzhou Panyu Luopu Xiajiao School</div>
+        <div class="timeline-location">Guangzhou, China</div>
+      </div>
+      <div class="timeline-item reveal reveal-delay-2">
+        <div class="timeline-year">2017 — 2020</div>
+        <div class="timeline-school">Wheelers Hill Primary School</div>
+        <div class="timeline-location">Melbourne, Australia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section skills" id="skills">
+  <div class="container">
+    <div class="section-label reveal">Capabilities</div>
+    <h2 class="section-title reveal reveal-delay-1">What I <em>bring to the table.</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Business Planning</h3>
+        <p>Developed business plans independently across multiple international competitions. Familiar with the full logic from idea to executable strategy.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+        </div>
+        <h3>Public Speaking</h3>
+        <p>Served as lead English presenter in multiple international business competitions. Clear, structured communication of complex ideas.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <h3>Visual Design & Craft</h3>
+        <p>Skilled in poster layout, information visualization, and physical product prototyping. Turning abstract concepts into tangible samples.</p>
+      </div>
+      <div class="skill-card reveal reveal-delay-3">
+        <div class="skill-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>AI Tools & Vibe Coding</h3>
+        <p>Fast at validating ideas through AI agents, video creation, and vibe coding. I thrive in the "describe → try → review" creative loop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Banner -->
+<section class="stats-banner">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-number"><span class="counter" data-target="30">0</span><span class="suffix">+</span></div>
+      <div class="stat-label">International<br>Competitions</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number"><span class="counter" data-target="2">0</span></div>
+      <div class="stat-label">Global<br>Championships</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number"><span class="counter" data-target="5">0</span></div>
+      <div class="stat-label">Global Top 5<br>Finishes</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number"><span class="suffix">$</span><span class="counter" data-target="60">0</span><span class="suffix">K</span></div>
+      <div class="stat-label">Scholarships &<br>Funding Earned</div>
+    </div>
+  </div>
+</section>
+
+<!-- Awards -->
+<section class="section awards" id="awards">
+  <div class="container-narrow">
+    <div class="section-label reveal">Awards & Achievements</div>
+    <h2 class="section-title reveal reveal-delay-1">A track record of <em>global excellence.</em></h2>
+
+    <!-- 2026 -->
+    <div class="award-year reveal">2026</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">Top 5<span class="small">Global</span></div>
+      <div class="award-body">
+        <h4>YES! Program Silicon Valley Challenge — Global Finals</h4>
+        <p>Received $3,000 seed funding from YES! Academic Fund. Asia's only team to advance to Global Finals (1/15). Only Asian team among 5 funded startups globally.</p>
+        <span class="badge">Seed Funded</span>
+      </div>
+      <div class="award-tag"><strong>$3,000</strong>Funding</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">Gold<span class="small">National</span></div>
+      <div class="award-body">
+        <h4>MEC Model Entrepreneur Competition — China Finals</h4>
+        <p>National Gold · High School Division · Team Leader · Exoskeleton Prototype Project. China Top 5 (5/100) advancing to Global Finals in Tokyo.</p>
+        <span class="badge">Team Leader</span>
+      </div>
+      <div class="award-tag"><strong>Tokyo</strong>Global Finals</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">#1<span class="small">National Champion</span></div>
+      <div class="award-body">
+        <h4>ASDAN All-Star National Finals — Middle School Division</h4>
+        <p>National Champion · Super Gold · Team Leader. Best Pitch, Best Deal, #1 in Business Decision. Top 8 Personal Presenter (8/400+).</p>
+        <span class="badge">Best Speaker</span>
+      </div>
+      <div class="award-tag"><strong>Champion</strong>Super Gold</div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="award-year reveal">2025</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">Champion<span class="small">Global #1</span></div>
+      <div class="award-body">
+        <h4>HFLC Hult Future Leaders Challenge — Global Finals</h4>
+        <p>Global Champion (1/10) · Vice Team Leader · Light-up Smart Football Project. First Chinese team to achieve this. Only Chinese team to advance from 582 global teams (advance rate 6.9%).</p>
+        <span class="badge">$60K Scholarship</span>
+      </div>
+      <div class="award-tag"><strong>$60,000</strong>Hult Scholarship</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">4th<span class="small">Global</span></div>
+      <div class="award-body">
+        <h4>BPA Business Professionals of America — Global Finals</h4>
+        <p>Global 4th Place · Orlando, USA · Team Leader · 985 Business Pitch Project. Second consecutive year achieving Global 4th. One of only 5 Chinese teams in Top 10.</p>
+        <span class="badge">Team Leader</span>
+      </div>
+      <div class="award-tag"><strong>Orlando</strong>USA</div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="award-year reveal">2024</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">Runner-up<span class="small">Global #2</span></div>
+      <div class="award-body">
+        <h4>HFLC Hult Future Leaders Challenge — Global Finals</h4>
+        <p>Global Runner-up. Ranked 2nd among 600+ high school teams worldwide. Received $40,000 Hult Scholarship.</p>
+        <span class="badge">$40K Scholarship</span>
+      </div>
+      <div class="award-tag"><strong>$40,000</strong>Hult Scholarship</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">4th<span class="small">Global</span></div>
+      <div class="award-body">
+        <h4>BPA Business Professionals of America — Global Finals</h4>
+        <p>Global 4th Place · Chicago, USA · Team Leader. National Silver in both preliminary and China Finals. Venture Lab Entrepreneur Unicorn Award — National Runner-up (2/12, only middle school team).</p>
+        <span class="badge">Team Leader</span>
+      </div>
+      <div class="award-tag"><strong>Chicago</strong>USA</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">Silver<span class="small">National</span></div>
+      <div class="award-body">
+        <h4>WYEF National Business Finals — Middle School Division</h4>
+        <p>National Silver (3/50). Including National Business Decision 4th, Best Pitch, and Entrepreneurship Award — 7 honors total.</p>
+      </div>
+      <div class="award-tag"><strong>7 Honors</strong>Total</div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="award-year reveal">2022 — 2025</div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">10<span class="small">Rounds</span></div>
+      <div class="award-body">
+        <h4>ASDAN Business Simulations — Regional Rounds</h4>
+        <p>10 regional rounds across Middle and High School divisions. 2 Gold · 4 Silver · 4 Bronze. Including Best Pitch, Best Decision, Best Trade, Best Poster, and SCAMPER Innovation awards.</p>
+      </div>
+      <div class="award-tag"><strong>10 Rounds</strong>2G / 4S / 4B</div>
+    </div>
+
+    <div class="award-card reveal">
+      <div class="award-rank">Top 30%<span class="small">Global</span></div>
+      <div class="award-body">
+        <h4>YIEC Youth Innovation & Entrepreneurship Competition</h4>
+        <p>Global Top 30% (30/100) · Team Leader. Also WYEF National Bronze (2022, 6th/50) with Best Pitch and Entrepreneurship Award.</p>
+      </div>
+      <div class="award-tag"><strong>Team Leader</strong>2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- Languages -->
+<section class="section languages" id="languages">
+  <div class="container">
+    <div class="section-label reveal">Languages</div>
+    <h2 class="section-title reveal reveal-delay-1">Bilingual by <em>experience.</em></h2>
+    <div class="lang-grid">
+      <div class="ielts-card reveal">
+        <div class="ielts-score">7<sub>.5</sub></div>
+        <div class="ielts-note">IELTS · First Attempt · All bands 7+ · May 2026</div>
+        <div class="ielts-bands">
+          <div class="band-item">
+            <span class="band-name">Listening</span>
+            <span class="band-score">7.5</span>
+          </div>
+          <div class="band-item">
+            <span class="band-name">Reading</span>
+            <span class="band-score">8.5</span>
+          </div>
+          <div class="band-item">
+            <span class="band-name">Writing</span>
+            <span class="band-score">7.5</span>
+          </div>
+          <div class="band-item">
+            <span class="band-name">Speaking</span>
+            <span class="band-score">7.0</span>
+          </div>
+        </div>
+      </div>
+      <div class="lang-list reveal reveal-delay-1">
+        <h4>Language Proficiency</h4>
+        <div class="lang-item">
+          <div class="name">Mandarin Chinese</div>
+          <div class="level">Native · Self-taught from zero to Outstanding Student Leader</div>
+        </div>
+        <div class="lang-item">
+          <div class="name">Cantonese</div>
+          <div class="level">Native · Daily use in Guangzhou</div>
+        </div>
+        <div class="lang-item">
+          <div class="name">English</div>
+          <div class="level">Fluent · 3 years in Australian primary school · IELTS 7.5</div>
+        </div>
+        <div class="lang-item">
+          <div class="name">French</div>
+          <div class="level">Cultural connection · Born in Paris, France</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-line"></div>
+  <p class="footer-quote">"My style is to start first, then iterate along the way."</p>
+  <div class="footer-name">Joelle <span>Xinyue</span> Chen</div>
+  <div class="footer-meta">陈心玥 · 14 · Grade 8 · INFP</div>
+  <p class="footer-copy">Personal Profile · Prepared for Fettes College Guangzhou Application · 2026</p>
+</footer>
+
+<script>
+// ==============================
+// NAVIGATION SCROLL
+// ==============================
+const nav = document.getElementById('nav');
+const progressBar = document.getElementById('progressBar');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+  const progress = (scrolled / maxScroll) * 100;
+
+  if (scrolled > 60) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  progressBar.style.width = progress + '%';
+});
+
+// ==============================
+// HERO PARALLAX
+// ==============================
+const heroBg = document.getElementById('heroBg');
+const hero = document.getElementById('hero');
+
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  if (scrolled < window.innerHeight) {
+    heroBg.style.transform = `translateY(${scrolled * 0.4}px) scale(${1 + scrolled * 0.0003})`;
+    heroBg.style.opacity = Math.max(0.15, 0.45 - scrolled * 0.0008);
+  }
+});
+
+// ==============================
+// SCROLL REVEAL (Intersection Observer)
+// ==============================
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Trigger counter if it has one
+      const counter = entry.target.querySelector('.counter');
+      if (counter && !counter.dataset.counted) {
+        counter.dataset.counted = 'true';
+        animateCounter(counter);
+      }
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+// ==============================
+// COUNTER ANIMATION
+// ==============================
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const start = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = current;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target;
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+// ==============================
+// SMOOTH SCROLL FOR NAV LINKS
+// ==============================
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 0;
+      window.scrollTo({
+        top: target.offsetTop - 20,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// ==============================
+// ACTIVE NAV STATE ON SCROLL
+// ==============================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + id) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-20% 0px -50% 0px' });
+
+sections.forEach((section) => navObserver.observe(section));
+
+// ==============================
+// SUBTLE CURSOR GLOW (desktop only)
+// ==============================
+if (window.matchMedia('(min-width: 900px)').matches) {
+  const cursorGlow = document.createElement('div');
+  cursorGlow.style.cssText = `
+    position: fixed;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 165, 114, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    mix-blend-mode: screen;
+  `;
+  document.body.appendChild(cursorGlow);
+
+  document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+  });
+}
+</script>
+</body>
+</html>
